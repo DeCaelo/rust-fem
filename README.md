@@ -26,4 +26,4 @@ Add Typescript:
 - **value** means the thing itself
 - **()** is a unit is "nothing" value (not undefined)
 
-- push (js) vs rust (pull)
+- push (js) vs pull (rust)
