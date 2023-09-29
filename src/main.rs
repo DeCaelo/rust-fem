@@ -1,40 +1,37 @@
-enum Color {
-    Red,
-    Green,
-    Blue,
-    Yellow,
+struct Custom {
+    name: String,
+    age: usize,
 }
 
-impl Color {
-    // &self is a readonly fct
-    fn is_green(&self) -> bool {
-        // pattern matching
-        if let Color::Green = self {
-            return true;
-        }
-        return false;
-    }
-
-    fn is_green_parts(&self) -> bool {
-        match self {
-            Color::Red => return false,
-            Color::Green => return false,
-            Color::Blue => return true,
-            Color::Yellow => return true,
-        }
-    }
-}
-
-fn print_color(color: Color) {
-    match color {
-        Color::Red => println!("red"),
-        Color::Green => println!("green"),
-        Color::Blue => println!("blue"),
-        Color::Yellow => println!("yellow"),
-    }
+enum Item {
+    Number(usize),
+    Custom(Custom),
+    String(String),
 }
 
 fn main() {
-    print_color(Color::Red);
-    Color::Green.is_green();
+    let foo = Item::Number(5);
+
+    match &foo {
+        Item::Number(num) => println!("i am a number: {}", num),
+        Item::String(str) => println!("i am a string: {}", str),
+        Item::Custom(custom) => println!("name: {}, age: {}", custom.name, custom.age),
+    }
+
+    match &foo {
+        Item::Custom(custom) => println!("name: {}, age: {}", custom.name, custom.age),
+        _ => {}
+    }
+
+    match &foo {
+        Item::Custom(Custom { age, .. }) => println!("age: {}", age),
+        _ => {}
+    }
+
+    match &foo {
+        Item::Custom(custom) if custom.name == "Ricky" => println!("Hi, Ricky"),
+        Item::Custom(custom) if custom.age > 33 => println!("N64 was the best console"),
+        Item::Custom(custom) if custom.age < 30 => println!("Xbox was the best console"),
+        _ => {}
+    }
 }
