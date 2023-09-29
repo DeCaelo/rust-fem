@@ -1,5 +1,13 @@
 fn main() {
-    let items: Vec<_> = [1, 2, 3].iter().map(|f| f + 1).collect();
+    // how long do my variable live
+    let data = vec![1, 2, 3];
+    let mut items = data.iter().map(|f| f + 1);
 
-    println!("{:?}", items);
+    // collect()
+    let mut collected_items = vec![];
+    while let Some(x) = items.next() {
+        collected_items.push(x);
+    }
+
+    println!("{:?}", collected_items);
 }

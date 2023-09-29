@@ -21,7 +21,7 @@ Add Typescript:
  bun add ts-node typescript @types/node tsc --init
 ```
 
-**&** reference means read only
-**& mut** mutable reference means write and read
-**value** means the thing itself
-**()** is a unit is "nothing" value (not undefined)
+- **&** reference means read only
+- **& mut** mutable reference means write and read
+- **value** means the thing itself
+- **()** is a unit is "nothing" value (not undefined)
