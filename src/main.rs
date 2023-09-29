@@ -1,13 +1,8 @@
 fn main() {
-    // how long do my variable live
-    let data = vec![1, 2, 3];
-    let mut items = data.iter().map(|f| f + 1);
+    let file = std::fs::read_to_string("lines").unwrap();
 
-    // collect()
-    let mut collected_items = vec![];
-    while let Some(x) = items.next() {
-        collected_items.push(x);
-    }
-
-    println!("{:?}", collected_items);
+    file.lines()
+        .enumerate()
+        .filter(|(idx, _)| idx % 2 == 0)
+        .for_each(|(_, line)| println!("{}", line));
 }
