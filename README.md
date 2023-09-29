@@ -25,3 +25,5 @@ Add Typescript:
 - **& mut** mutable reference means write and read
 - **value** means the thing itself
 - **()** is a unit is "nothing" value (not undefined)
+
+- push (js) vs rust (pull)
