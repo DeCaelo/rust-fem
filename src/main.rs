@@ -1,21 +1,39 @@
-#[derive(Debug)]
-struct Item {
-    count: usize,
+mod shapes;
+
+use std::f64::consts::PI;
+
+use shapes::{Circle, Rect};
+
+trait Area {
+    fn area(&self) -> f64;
 }
 
-fn add_one(item: &mut Item) {
-    item.count += 1
+impl Area for Rect {
+    fn area(&self) -> f64 {
+        return self.height * self.width;
+    }
 }
 
-fn print_all(items: &Vec<Item>) {
-    for item in items {
-        println!("{:?}", item);
+impl Area for Circle {
+    fn area(&self) -> f64 {
+        return self.radius * self.radius * PI;
     }
 }
 
 fn main() {
-    let mut items = vec![Item { count: 1 }];
-    let first = items.get_mut(0);
-    let second = items.get_mut(1);
-    println!("{:?}", first);
+    let rect = Rect {
+        x: 0.0,
+        y: 0.0,
+        width: 10.0,
+        height: 10.0,
+    };
+
+    let circ = Circle {
+        x: 0.0,
+        y: 0.0,
+        radius: 10.0,
+    };
+
+    println!("{}", circ.area());
+    println!("{}", rect.area());
 }

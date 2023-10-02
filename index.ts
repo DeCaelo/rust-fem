@@ -1,14 +1,24 @@
-import fs from 'fs';
+interface Area {
+  area(): number;
+}
 
-const fileName = process.argv[2];
+class Rectangle implements Area {
+  constructor(
+    public x: number,
+    public y: number,
+    public width: number,
+    public height: number
+  ) {}
 
-fs.readFileSync(fileName)
-  .toString()
-  .split('\n')
-  .forEach((line) => {
-    const print = parseInt(line);
-    if (isNaN(print)) {
-      console.log('Line is not a number');
-    }
-    console.log(print);
-  });
+  area(): number {
+    return this.width * this.height;
+  }
+}
+
+class Circle {
+  constructor(public x: number, public y: number, public radius: number) {}
+
+  area(): number {
+    return this.radius * this.radius * Math.PI;
+  }
+}
