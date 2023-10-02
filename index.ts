@@ -1,20 +1,6 @@
-type Custom = {
-  age: number;
-  name: string;
-};
-
-type Item = number | string | Custom;
-
-function append(items: Item[]) {
-  items.push('hello fem!');
+function multiply(num: number | undefined): number {
+  return (num ?? 0) * 5;
 }
 
-const items: Item[] = [];
-
-append(items);
-console.log(items);
-
-const numbers: number[] = [];
-
-append(numbers);
-console.log(items);
+console.log(multiply(undefined));
+console.log(multiply(10));
