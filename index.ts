@@ -1,5 +1,8 @@
-function multiply(nums: number[], index: number): number {
-  return (nums[index] ?? index) * 5;
-}
+import fs from 'fs';
 
-console.log(multiply([10, 9, 8], 1));
+const fileName = process.argv[2];
+
+fs.readFileSync(fileName)
+  .toString()
+  .split('\n')
+  .forEach((line) => console.log(line));
