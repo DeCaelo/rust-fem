@@ -1,6 +1,5 @@
-function multiply(num: number | undefined): number {
-  return (num ?? 0) * 5;
+function multiply(nums: number[], index: number): number {
+  return (nums[index] ?? index) * 5;
 }
 
-console.log(multiply(undefined));
-console.log(multiply(10));
+console.log(multiply([10, 9, 8], 1));
