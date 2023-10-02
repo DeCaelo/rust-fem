@@ -27,3 +27,25 @@ Add Typescript:
 - **()** is a unit is "nothing" value (not undefined)
 
 - push (js) vs pull (rust)
+
+### There are THREE rules you must have in your head at all times.
+
+- There can only be **one** value owner
+- There can be **unlimited** immutable borrows (reference) with no mutable references
+- There can be only **one** mutable reference and **no** immutable references
+
+### There is one rule for Lifetimes
+
+- A reference **cannot** outlive its value
+
+- Stated differently:
+
+  - One var owns the the data
+
+  - One var can change the data
+
+  - Many vars can look at the data
+
+  - You cannot look and change the data simultaneously
+
+  - You cannot refer to something that has been dropped (released in memory)
