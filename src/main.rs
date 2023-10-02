@@ -6,6 +6,6 @@ fn main() {
     let rect = Rect::default();
     let circ = Circle::default();
 
-    println!("{}", circ.area());
-    println!("{}", rect.area());
+    println!("{}", rect);
+    println!("{}", circ);
 }

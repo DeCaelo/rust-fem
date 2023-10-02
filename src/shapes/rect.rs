@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 use super::area::Area;
 
 pub struct Rect {
@@ -21,5 +23,15 @@ impl Default for Rect {
             width: 10.0,
             height: 10.0,
         };
+    }
+}
+
+impl Display for Rect {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        return write!(
+            f,
+            "Rectangle({},{}): {}x{}",
+            self.x, self.y, self.width, self.height
+        );
     }
 }
