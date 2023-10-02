@@ -13,3 +13,13 @@ impl Area for Circle {
         return self.radius * self.radius * PI;
     }
 }
+
+impl Default for Circle {
+    fn default() -> Self {
+        return Circle {
+            x: 0.0,
+            y: 0.0,
+            radius: 10.0,
+        };
+    }
+}

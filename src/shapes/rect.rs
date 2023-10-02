@@ -12,3 +12,14 @@ impl Area for Rect {
         return self.height * self.width;
     }
 }
+
+impl Default for Rect {
+    fn default() -> Self {
+        return Rect {
+            x: 0.0,
+            y: 0.0,
+            width: 10.0,
+            height: 10.0,
+        };
+    }
+}
