@@ -1,24 +1,6 @@
 mod shapes;
 
-use std::f64::consts::PI;
-
-use shapes::{Circle, Rect};
-
-trait Area {
-    fn area(&self) -> f64;
-}
-
-impl Area for Rect {
-    fn area(&self) -> f64 {
-        return self.height * self.width;
-    }
-}
-
-impl Area for Circle {
-    fn area(&self) -> f64 {
-        return self.radius * self.radius * PI;
-    }
-}
+use crate::shapes::{area::Area, circle::Circle, rect::Rect};
 
 fn main() {
     let rect = Rect {
