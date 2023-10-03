@@ -1,4 +1,4 @@
-use std::{f64::consts::PI, fmt::Display};
+use std::{f64::consts::PI, fmt::Display, str::FromStr};
 
 use super::{
     area::Area,
@@ -45,5 +45,23 @@ impl Default for Circle {
 impl Display for Circle {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         return write!(f, "Circle({}): {}", self.x, self.radius);
+    }
+}
+
+impl FromStr for Circle {
+    type Err = anyhow::Error;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let parts = s.split(" ").collect::<Vec<_>>();
+
+        if parts.len() != 3 {
+            return Err(anyhow::anyhow!("Invalid number of parts"));
+        }
+
+        return Ok(Circle {
+            x: parts[0].parse()?,
+            y: parts[1].parse()?,
+            radius: parts[2].parse()?,
+        });
     }
 }
