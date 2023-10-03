@@ -12,7 +12,7 @@ pub trait Collidable<T> {
     }
 }
 
-struct PointIter {
+pub struct PointIter {
     points: Vec<(f64, f64)>,
     idx: usize,
 }
@@ -44,9 +44,11 @@ pub trait Contains {
 
 // blanket implementation
 // It is an implement of a trait either for all types, or for all types that match some condition
-impl<T> Collidable<T> for T
+// T is the other (give use points), V is self (check point containing)
+impl<T, V> Collidable<T> for V
 where
-    T: Points + Contains,
+    T: Points,
+    V: Contains,
 {
     fn collide(&self, other: &T) -> bool {
         for point in other.points() {
